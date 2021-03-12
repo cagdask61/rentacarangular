@@ -1,0 +1,61 @@
+
+:root{
+    --FooterDark: #17202A;
+    --FooterLight: #F2F3F4;
+    --FooterHoverColorWhite: #F8F9F9;
+    --FooterHoverColorDark: #34495E;
+    --FooterLink: #2ECC71;
+    --Width: 10;
+    --Height: 10;
+    --Top: 10;
+    --Bottom: 10;
+    --Left: 10;
+    --Right: 10;
+}
+.Fo{
+    
+    display: flex;
+    justify-content: space-evenly;
+    transition: 0.6s;
+}
+.FooterDark{
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    background-color: var(--FooterDark);
+    margin-top: calc(var(--Top) * 2px);
+}
+
+.FooterLight{
+    background-color: var(--FooterLight);
+    padding: 20px;
+    width: 100%;
+    height: auto;
+}
+.FooterHeader{
+    margin-top: calc(var(--Top) * 2px);
+    margin-bottom: calc(var(--Bottom) *1px);
+}
+
+.FooterLink{
+    padding: 10px;
+    color: var(--FooterLink);
+    text-decoration: none;
+}
+.FooterLink:hover{
+    background-color: var(--FooterHoverColorWhite);
+    border-radius: 3px;
+}
+@media (max-width: 600px){
+   
+    .FooterHeader{
+        display: flex;
+        margin-top: calc(var(--Top) * 2px);
+        margin-left: calc(var(--Left) * 10px);
+        width: calc(var(--Top) * 25px);
+        height: calc(var(--Height) * 7px);
+
+    }
+    
+   
+}
