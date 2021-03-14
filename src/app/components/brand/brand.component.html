@@ -5,17 +5,12 @@
 
 
 
-<table *ngIf="dataLoadedBrand==true" class="table table-dark table-hover">
-    <thead>
-        <tr>
-            <th class="text-info">Number</th>
-            <th class="text-danger">Brand Name</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let brand of brands">
-            <td>{{brand.id}}</td>
-            <td><a href="#">{{brand.brandName}}</a></td>
-        </tr>
-    </tbody>
-  </table>
+  <ul  *ngIf="dataLoadedBrand == true">
+    <li [class]="getAllColorClass()" routerLink="/cars">Tüm araçlar    
+    </li>
+
+    <li (click)="setCurrentColor(brand)" routerLink="/cars/brand/{{brand.id}}" *ngFor="let brand of brands" [class]="getCurrentColorClass(brand)">
+        {{brand.brandName}}
+  </ul>
+
+  <h3 *ngIf="currentBrand" class="text-white">{{currentBrand.brandName}}</h3>

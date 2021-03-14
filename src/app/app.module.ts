@@ -9,7 +9,6 @@ import { BrandComponent } from './components/brand/brand.component';
 import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { CategoryComponent } from './components/category/category.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 @NgModule({
@@ -21,7 +20,6 @@ import { HttpClientModule } from '@angular/common/http';
     ColorComponent,
     CustomerComponent,
     NavbarComponent,
-    CategoryComponent,
     FooterComponent
   ],
   imports: [

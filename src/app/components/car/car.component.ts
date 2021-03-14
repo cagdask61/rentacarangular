@@ -1,5 +1,7 @@
-import { HttpResponseBase } from '@angular/common/http';
+
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car';
 import { CarService } from 'src/app/services/car.service';
 
@@ -13,18 +15,41 @@ export class CarComponent implements OnInit {
   cars:Car[] = [];
   dataLoaded = false;
 
-  constructor(private carService:CarService) { }
+  constructor(private carService:CarService, private activatedRoute:ActivatedRoute) { }
 
 
 
   ngOnInit(): void {
-    this.getCarsDetais();
+    this.activatedRoute.params.subscribe(params=>{
+      if(params["colorId"]){
+        this.getCarsByColor(params["colorId"])
+      }
+      if(params["brandId"]){
+        this.getCarsByBrand(params["brandId"])
+      }
+      else{
+        this.getCarsDetais();
+      }
+    })
   }
 
   getCarsDetais(){
     this.carService.getCarsDetails().subscribe(response =>{
       this.cars = response.data;
       this.dataLoaded=true;
+    })
+  }
+
+  getCarsByColor(colorId:number){
+    this.carService.getCarsByColor(colorId).subscribe(response=>{
+      this.cars = response.data
+      this.dataLoaded = true;
+    })
+  }
+
+  getCarsByBrand(brandId:number){
+    this.carService.getCarsByBrand(brandId).subscribe(response=>{
+      this.cars = response.data
     })
   }
 

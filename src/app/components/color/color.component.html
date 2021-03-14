@@ -5,17 +5,10 @@
 
 
 
-<table *ngIf="dataLoadedColor==true" class="table table-dark table-hover">
-    <thead>
-        <tr>
-            <th class="text-info">Number</th>
-            <th class="text-danger">Color Name</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let color of colors">
-            <td>{{color.id}}</td>
-            <td><a href="#">{{color.colorName}}</a></td>
-        </tr>
-    </tbody>
-  </table>
+  <ul  *ngIf="dataLoadedColor == true">
+    <li [class]="getAllColorClass()" routerLink="/cars">Tüm ürünler    
+    </li>
+
+    <li (click)="setCurrentColor(color)" routerLink="/cars/color/{{color.id}}" *ngFor="let color of colors" [class]="getCurrentColorClass(color)">
+        {{color.colorName}}
+  </ul>
